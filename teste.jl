@@ -1,13 +1,16 @@
 using LinearAlgebra
-include("conjugadoDY.jl")
-include("conjugado.jl")
+#include("conjugadoDY.jl")
+#include("conjugado.jl")
 include("testfunctionsII.jl")
+include("zhang.jl")
 
-x = rand(2,1)
 
-iter1, iter2, iter3, iter4, iter5, iter6 = 0, 0, 0, 0, 0, 0
 
-  (x1, fx1, iter1) = conjugado(x, rosenbrock, gradrosenbrock, 2, wolfe, 1);
+#x = rand(2,1)
+
+#iter1, iter2, iter3, iter4, iter5, iter6 = 0, 0, 0, 0, 0, 0
+
+#(x1, fx1, iter1) = conjugado(x, rosenbrock, gradrosenbrock, 2, wolfe, 1);
 #  (x2, fx2, iter2) = conjugado(x, powell, gradpowell, 2, armijo, 1);
 #  (x3, fx3, iter3) = conjugado(x, powell, gradpowell, 2, goldstein, 0);
 #  (x4, fx4, iter4) = conjugado(x, powell, gradpowell, 2, goldstein, 1);
@@ -22,8 +25,11 @@ for j in 1:n
     push!(p, 1-(j/n))
 end
 
-x = rand(2)
+#x = rand(2)
 
 # x1, fx1, k, counter = conjugadoPRP(x, rosenbrock, gradrosenbrock, 2);
- x, fx, k, counter = conjugadoPRP(p, vardim, gradvardim, n);
+# x, fx, k, counter = conjugadoDY(p, vardim, gradvardim);
 
+ϵ = 1.e-5;
+ϵ1 = 0.01;
+(x,iter,erro)  =   cgzhang(p,vardim,gradvardim,ϵ,ϵ1);
