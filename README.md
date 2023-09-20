@@ -18,6 +18,9 @@ x4, fx4, normx4, iter4, t4, ierror4, serror4, gn4, fn4, X4, Y4, Z4 = goldsteinPR
 ```
 You only need to include these five files (armijoPRP.jl, cautiousDY.jl, goldsteinPRP.jl, goldsteinDY.jl and testfunction.jl), the first four files are algorithms to minimize $f:\mathbb{R}^n\to\mathbb{R}$ and the last one has the objective function. The variable f it is the function and gf its gradient, with ndim you can determine the dimension, $x0$ has the guess point. Moreover, the last four lines of the code show how to invoke each algorithm.
 
+# testfunction.jl
+This file contain the test function used on our work.
+
 # armijoPRP.jl
 This file contains the function called armijo which implements the PRP method (conjugate gradient) or the gradient method where the steplength is computated by Armijo's rule. To invoke this function you need the following informations:
 
